@@ -26,7 +26,7 @@ def rename_columns(data: pd.DataFrame, column: dict) -> None:
     return data.rename(columns=column, inplace=True)
 
 
-def delete_columns(data: pd.DataFrame, column: str) -> None:
+def delete_columns(data: pd.DataFrame, column: list) -> None:
     """
     Deleting columns
     :param data: dataset
@@ -67,13 +67,14 @@ def delete_nan_rows(data: pd.DataFrame) -> None:
     return data.dropna(inplace=True)
 
 
-def choose_datetime_period(data: pd.Timedelta) -> pd.Series:
+def choose_datetime_period(data: pd.Timedelta, period: str) -> pd.Series:
     """
     Calculating timedelta
     :param data: pd.datetime - pd.datetime
+    :param period: 'Y' - year, 'D' - days
     :return: pd.Series
     """
-    return data.dt.days
+    return data.dt.days if period == 'D' else data.dt.year
 
 
 def convert_series_to_datetime(data: pd.Series) -> pd.Series:

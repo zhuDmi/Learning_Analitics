@@ -13,7 +13,7 @@ constants:
 
 transform_data_params:
   fill_nan_marks: 'неявка'
-  columns_to_drop: ['KEYWORD_NAMES']
+  columns_to_drop: ['KEYWORD_NAMES', 'DATE_END', 'MAIN_PLAN']
   columns_to_rename: [{'PLAN_ID': 'MAIN_PLAN'}, {'GENDER':"STUD_GENDER"}]
   data_type_of_columns: [{'SEMESTER': 'int16'}, {'DISC_DEP': str}]
 
