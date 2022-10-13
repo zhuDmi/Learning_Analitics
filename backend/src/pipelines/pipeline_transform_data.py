@@ -8,6 +8,11 @@ from ..transform.transform_data import *
 
 
 def transform_data_pipeline(config_path: str) -> pd.DataFrame:
+    """
+    Pipeline for processing data
+    :param config_path: path to params.yaml file
+    :return: pd.DataFrame
+    """
     # get params
     with open(config_path) as file:
         config = yaml.load(file, Loader=yaml.FullLoader)
