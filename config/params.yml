@@ -1,0 +1,19 @@
+data:
+  train_path: /path
+  marks_path: /path
+  discipline_path: /path
+  portrait_path: /path
+  students_path: /path
+  uniq_values_path: /path
+  processed_data: /path
+
+constants:
+  random_state: 10
+  n_folds: 6
+
+transform_data_params:
+  fill_nan_marks: 'неявка'
+  columns_to_drop: ['KEYWORD_NAMES']
+  columns_to_rename: [{'PLAN_ID': 'MAIN_PLAN'}, {'GENDER':"STUD_GENDER"}]
+  data_type_of_columns: [{'SEMESTER': 'int16'}, {'DISC_DEP': str}]
+
