@@ -1,11 +1,11 @@
 data:
-  train_path: /path
-  marks_path: /path
-  discipline_path: /path
-  portrait_path: /path
-  students_path: /path
-  uniq_values_path: /path
-  processed_data: /path
+  train_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/DF/train.csv
+  marks_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/DF/comp_marks.csv
+  discipline_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/DF/comp_disc.csv
+  portrait_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/DF/comp_portrait.csv
+  students_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/DF/comp_students.csv
+  uniq_values_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/report
+  processed_data: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/raw_data/cleaned_data.feather
 
 constants:
   random_state: 10

@@ -3,8 +3,8 @@ Pipeline transform data
 """
 import pyarrow.feather as feather
 import yaml
-from ..data.get_data import get_dataset
-from ..transform.transform_data import *
+from backend.src.data.get_data import get_dataset
+from backend.src.transform.transform_data import *
 
 
 def transform_data_pipeline(config_path: str) -> pd.DataFrame:
@@ -28,7 +28,7 @@ def transform_data_pipeline(config_path: str) -> pd.DataFrame:
 
     # Processing discipline dataset
     discipline = get_dataset(data_path['discipline_path'])
-    delete_columns(discipline, transform_params['columns_to_drop'])
+    delete_columns(discipline, transform_params['columns_to_drop'][0])
     rename_columns(discipline, column=transform_params['columns_to_rename'][0])
     discipline['SEMESTER'] = change_types(discipline['SEMESTER'], transform_params['data_type_of_columns'][0])
     discipline['DISC_DEP'] = change_types(discipline['DISC_DEP'], transform_params['data_type_of_columns'][1])
@@ -43,8 +43,8 @@ def transform_data_pipeline(config_path: str) -> pd.DataFrame:
 
     # fill in the gaps with averages
     for i in range(1, 4):
-        portrait['ADMITTED_EXAM_' + str(i)] = portrait[
-            'ADMITTED_EXAM_' + str(i)].fill_nan(portrait['ADMITTED_EXAM_' + str(i)].mean())
+        portrait['ADMITTED_EXAM_' + str(i)] = fill_nan(
+            portrait['ADMITTED_EXAM_' + str(i)], portrait['ADMITTED_EXAM_' + str(i)].mean())
 
     delete_nan_rows(portrait)
 
@@ -64,7 +64,7 @@ def transform_data_pipeline(config_path: str) -> pd.DataFrame:
     students['DATE_END'] = convert_series_to_datetime(students['DATE_END'])
     students['Training_period'] = choose_datetime_period(students['DATE_END'] - students['DATE_START'], 'D')
     students['DATE_START'] = choose_datetime_period(students['DATE_START'], 'Y')
-    delete_columns(students, [transform_params['columns_to_drop'][1], transform_params['columns_to_drop'][1][2]])
+    delete_columns(students, [transform_params['columns_to_drop'][1], transform_params['columns_to_drop'][2]])
 
     # merge temp & students
     temp = merge_data(temp, students, create_common_columns(temp, students))
@@ -78,6 +78,7 @@ def transform_data_pipeline(config_path: str) -> pd.DataFrame:
         temp[i] = change_types(temp[i], {i: 'str'})
 
     train = merge_data(train, temp, create_common_columns(train, temp))
+    delete_nan_rows(train)
 
     # transform types of train columns
     train[train.select_dtypes('int64').columns] = train[train.select_dtypes(
