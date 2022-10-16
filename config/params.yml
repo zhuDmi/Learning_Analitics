@@ -17,3 +17,13 @@ transform_data_params:
   columns_to_rename: [{'PLAN_ID': 'MAIN_PLAN'}, {'GENDER':"STUD_GENDER"}]
   data_type_of_columns: [{'SEMESTER': 'int16'}, {'DISC_DEP': str}]
 
+
+models:
+  catboost: '/Users/dmitry/PycharmProjects/Learning_Analitics/models/Catboost.pkl'
+  catboost_best_params: '/Users/dmitry/PycharmProjects/Learning_Analitics/models/Catboost_best_params.json'
+
+train:
+  test_size: 0.2
+  split_per_year: False
+  target_column: 'DEBT'
+
