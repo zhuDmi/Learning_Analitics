@@ -3,9 +3,7 @@ Get model prediction
 """
 import os
 import joblib
-import pandas as pd
-
-from backend.src.pipelines.pipeline_transform_data import *
+from ..pipelines.pipeline_transform_data import *
 
 
 def pipeline_evaluate(config_path: str, dataset: pd.DataFrame = None) -> list:

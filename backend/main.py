@@ -6,15 +6,15 @@ import warnings
 import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
-from backend.src.evaluate.evaluate_model import *
-from backend.src.pipelines.pipeline import pipeline_training
-from backend.src.train.metrics import load_metrics
-from backend.src.evaluate.evaluate_model import pipeline_evaluate
+from src.evaluate.evaluate_model import *
+from src.pipelines.pipeline import pipeline_training
+from src.train.metrics import load_metrics
+from src.evaluate.evaluate_model import pipeline_evaluate
 
 warnings.filterwarnings('ignore')
 app = FastAPI()
 
-config_path = '/Users/dmitry/PycharmProjects/Learning_Analitics/config/params.yml'
+config_path = '/config/params.yml'
 
 
 class StudentParameters(BaseModel):

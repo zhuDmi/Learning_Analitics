@@ -20,12 +20,11 @@ def data_split(data: pd.DataFrame, **kwargs) -> tuple[Any, Any, Any, Any]:
         x_test = test_data.drop(kwargs['target_column'], axis=1)
         y_test = test_data[kwargs['target_column']].values
     else:
-        X = data.drop(kwargs['target_column'], axis=1)
+        x = data.drop(kwargs['target_column'], axis=1)
         y = data[kwargs['target_column']].values
-        x_train, x_test, y_train, y_test = train_test_split(X,
+        x_train, x_test, y_train, y_test = train_test_split(x,
                                                             y,
                                                             random_state=kwargs['random_state'],
                                                             shuffle=True, test_size=kwargs['test_size'],
                                                             stratify=y)
     return x_train, y_train, x_test, y_test
-

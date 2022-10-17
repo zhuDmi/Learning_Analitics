@@ -10,8 +10,8 @@ from sklearn.metrics import f1_score
 import joblib
 import pandas as pd
 import numpy as np
-from backend.src.data.split_dataset import data_split
-from backend.src.train.metrics import save_metrics
+from ..data.split_dataset import data_split
+from ..train.metrics import save_metrics
 
 
 def objective_cat(trial,

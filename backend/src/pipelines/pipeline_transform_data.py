@@ -3,8 +3,8 @@ Pipeline transform data
 """
 import pyarrow.feather as feather
 import yaml
-from backend.src.data.get_data import get_dataset
-from backend.src.transform.transform_data import *
+from ..data.get_data import get_dataset
+from ..transform.transform_data import *
 
 
 def transform_data_pipeline(config_path: str) -> pd.DataFrame:

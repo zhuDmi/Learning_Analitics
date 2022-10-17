@@ -5,8 +5,8 @@ import os
 import joblib
 import yaml
 import numpy as np
-from backend.src.data.get_data import get_dataset
-from backend.src.train.train import find_optimal_params, train_model
+from ..data.get_data import get_dataset
+from ..train.train import find_optimal_params, train_model
 
 
 def pipeline_training(config_path: str) -> None:
