@@ -3,12 +3,15 @@ Get model prediction
 """
 import os
 import joblib
+import pandas as pd
+
 from backend.src.pipelines.pipeline_transform_data import *
 
 
-def pipeline_evaluate(config_path: str) -> list:
+def pipeline_evaluate(config_path: str, dataset: pd.DataFrame = None) -> list:
     """
     get model prediction
+    :param dataset: data for evaluate
     :param config_path: path to params file
     :return: model prediction
     """
@@ -17,9 +20,6 @@ def pipeline_evaluate(config_path: str) -> list:
         config = yaml.load(file, Loader=yaml.FullLoader)
 
     model_config = config['models']
-
-    # preprocessing
-    dataset = transform_data_pipeline(config_path)
 
     # prediction
     model = joblib.load(os.path.join(model_config['catboost']))
