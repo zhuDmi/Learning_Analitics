@@ -4,12 +4,10 @@ data:
   discipline_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/DF/comp_disc.csv
   portrait_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/DF/comp_portrait.csv
   students_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/DF/comp_students.csv
-  uniq_values_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/report
+  uniq_values_path: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/report/
   processed_data: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/raw_data/cleaned_data.feather
+  final_dataset: /Users/dmitry/Library/CloudStorage/GoogleDrive-ceo@gangai.pro/Мой диск/Colab Notebooks/Pet_project/Processed data/df.feather
 
-constants:
-  random_state: 10
-  n_folds: 6
 
 transform_data_params:
   fill_nan_marks: 'неявка'
@@ -19,11 +17,16 @@ transform_data_params:
 
 
 models:
-  catboost: '/Users/dmitry/PycharmProjects/Learning_Analitics/models/Catboost.pkl'
+  catboost: '/Users/dmitry/PycharmProjects/Learning_Analitics/models/Catboost.joblib'
   catboost_best_params: '/Users/dmitry/PycharmProjects/Learning_Analitics/models/Catboost_best_params.json'
+  study: '/Users/dmitry/PycharmProjects/Learning_Analitics/models/study.joblib'
 
 train:
   test_size: 0.2
   split_per_year: False
   target_column: 'DEBT'
+  metrics_path: '/Users/dmitry/PycharmProjects/Learning_Analitics/report/metrics.json'
+  random_state: 10
+  n_folds: 6
+  n_trials: 10
 

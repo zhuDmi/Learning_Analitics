@@ -65,8 +65,7 @@ def objective_cat(trial,
         y_train, y_test = y[train_index], y[test_index]
 
         model = CatBoostClassifier(**catboost_params,
-                                   cat_features=cat_features,
-                                   task_type='GPU')
+                                   cat_features=cat_features)
 
         model.fit(x_train,
                   y_train,
@@ -80,16 +79,18 @@ def objective_cat(trial,
     return np.mean(predict_score)
 
 
-def find_optimal_params(data: pd.DataFrame, **kwargs) -> Study:
+def find_optimal_params(data: pd.DataFrame,
+                        class_ratio: float,
+                        cat_features: list,
+                        **kwargs) -> Study:
     """
     Pipeline for training model
     :param data: dataset
+    :param class_ratio: rate of imbalance classes
+    :param cat_features: list of categorical features
     :return: [CatboostClassifier tuning, Study]
     """
-    x_train, x_test, y_train, y_test = data_split(data,
-                                                  kwargs['test_size'],
-                                                  kwargs['random_state'],
-                                                  kwargs['target_column'])
+    x_train, y_train, x_test, y_test = data_split(data, **kwargs)
 
     study = optuna.create_study(direction="maximize", study_name="Catboost")
 
@@ -97,7 +98,9 @@ def find_optimal_params(data: pd.DataFrame, **kwargs) -> Study:
                                        x_train,
                                        y_train,
                                        kwargs["n_folds"],
-                                       kwargs["random_state"])
+                                       kwargs["random_state"],
+                                       class_ratio=class_ratio,
+                                       cat_features=cat_features)
 
     study.optimize(func, n_trials=kwargs["n_trials"], show_progress_bar=True)
 
@@ -121,15 +124,11 @@ def train_model(data: pd.DataFrame,
     :return: CatboostClassifier
     """
     # get data
-    x_train, x_test, y_train, y_test = data_split(data,
-                                                  kwargs['test_size'],
-                                                  kwargs['random_state'],
-                                                  kwargs['target_column'])
+    x_train, y_train, x_test, y_test = data_split(data, **kwargs)
 
     # training optimal params
     clf = CatBoostClassifier(**study.best_params,
-                             cat_features=cat_features,
-                             task_type='GPU')
+                             cat_features=cat_features)
     clf.fit(x_train, y_train, verbose=0)
 
     # save metrics
