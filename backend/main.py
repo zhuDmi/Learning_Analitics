@@ -3,9 +3,11 @@ Model for predicting student performance
 """
 
 import warnings
+
 import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
+
 from src.evaluate.evaluate_model import *
 from src.pipelines.pipeline import pipeline_training
 from src.train.metrics import load_metrics

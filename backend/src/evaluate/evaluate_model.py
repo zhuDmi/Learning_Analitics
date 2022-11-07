@@ -2,6 +2,7 @@
 Get model prediction
 """
 import os
+
 import joblib
 from ..pipelines.pipeline_transform_data import *
 

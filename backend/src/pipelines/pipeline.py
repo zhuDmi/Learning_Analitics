@@ -2,9 +2,11 @@
 Pipeline for training model
 """
 import os
+
 import joblib
 import yaml
 import numpy as np
+
 from ..data.get_data import get_dataset
 from ..train.train import find_optimal_params, train_model
 

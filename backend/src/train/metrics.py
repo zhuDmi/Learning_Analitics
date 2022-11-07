@@ -4,8 +4,8 @@ Get metrics
 """
 import json
 import yaml
-from sklearn.metrics import (roc_auc_score, precision_score, recall_score, f1_score, log_loss)
 import pandas as pd
+from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score, log_loss
 
 
 def create_dict_metrics(y_test: pd.Series,

@@ -2,6 +2,7 @@
 Training program
 """
 import os.path
+
 import optuna
 from optuna import Study
 from catboost import CatBoostClassifier
@@ -10,6 +11,7 @@ from sklearn.metrics import f1_score
 import joblib
 import pandas as pd
 import numpy as np
+
 from ..data.split_dataset import data_split
 from ..train.metrics import save_metrics
 
