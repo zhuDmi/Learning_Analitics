@@ -9,19 +9,19 @@ cd Learning_Analitics
 pip install -r requirements.txt  # install
 ```
 ## EDA
-![img.png](img.png)
+![img_1.png](demo/img_1.png)
 
 Classes balance
 
-![img_1.png](img_1.png)
+![img_2.png](demo/img_2.png)
 
 Checking Target Dependencies on Features
 
-![img_2.png](img_2.png)
+![img_3.png](demo/img_3.png)
 
 Checking the distribution of numeric values
 
-![img_3.png](img_3.png)
+![img_4.png](demo/img_4.png)
 
 for more EDA see the [EDA.ipynb](https://github.com/zhuDmi/Learning_Analitics/blob/master/notebooks/EDA.ipynb)
 
@@ -29,8 +29,7 @@ for more EDA see the [EDA.ipynb](https://github.com/zhuDmi/Learning_Analitics/bl
 
 For compare baselines we are choose 2 models: Catboost and Lightgbm. Base metrics is F1
 
-
-![img_4.png](../../Desktop/temp/Снимок экрана 2022-11-07 в 12.51.52.png)
+![](../../Desktop/temp/Снимок экрана 2022-11-07 в 12.51.52.png)
 
 Hyperparameter fitting done with Optuna
 
@@ -42,7 +41,7 @@ Stacking done. GaussianNB is chosen as the metamodel
 
 ## Feature importance
 
-![img_4.png](img_4.png)
+![img_5.png](demo/img_5.png)
 
 ## Model performance
 
