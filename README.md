@@ -53,4 +53,4 @@ Solution can be reproduced on GPU.
 
 GPU characteristics: Tesla T4.
 
-Time to inference is 0:00:00.758324.
+Time to inference is 0:00:00.758324
