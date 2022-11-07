@@ -160,4 +160,6 @@ cython_debug/
 
 # .idea
 .idea/
+.idea/Learning_Analitics.iml
+.idea/misc.xml
 
