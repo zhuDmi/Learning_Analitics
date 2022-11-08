@@ -36,11 +36,11 @@ For compare baselines we are choose 2 models: Catboost and Lightgbm. Base metric
 
 Hyperparameter fitting done with Optuna
 
-![img_5.png](../../Desktop/temp/Снимок экрана 2022-11-07 в 12.56.05.png)
+![telegram-cloud-photo-size-2-5427116226095725822-x](https://user-images.githubusercontent.com/55249362/200521295-f486c5e3-1810-45ae-8ef4-f366fa6a4165.jpg)
 
 Stacking done. GaussianNB is chosen as the metamodel
 
-![img_6.png](../../Desktop/temp/Снимок экрана 2022-11-07 в 12.58.34.png)
+![telegram-cloud-photo-size-2-5427116226095725823-x](https://user-images.githubusercontent.com/55249362/200521353-945d2079-4165-4543-b971-8bb05bd1c73f.jpg)
 
 ## Feature importance
 
