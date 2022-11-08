@@ -32,7 +32,7 @@ for more EDA see the [EDA.ipynb](https://github.com/zhuDmi/Learning_Analitics/bl
 
 For compare baselines we are choose 2 models: Catboost and Lightgbm. Base metrics is F1
 
-![](../../Desktop/temp/Снимок экрана 2022-11-07 в 12.51.52.png)
+![telegram-cloud-photo-size-2-5427116226095725821-x](https://user-images.githubusercontent.com/55249362/200521194-17f2acbf-a27c-4909-9c40-dcd7b77f1e16.jpg)
 
 Hyperparameter fitting done with Optuna
 
