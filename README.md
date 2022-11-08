@@ -4,6 +4,9 @@ Team: Voronkina Daria, Zhukov Dmitriy, Kuchuganova Svetlana
 ## Quick start examples
 Clone repo and install [requirements.txt](https://github.com/zhuDmi/Learning_Analitics)
 ```bash
+python3 -m venv env #setup enviroment
+source env/bin/activate
+
 git clone https://github.com/zhuDmi/Learning_Analitics  # clone
 cd Learning_Analitics
 pip install -r requirements.txt  # install
